@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{admin-template.html}">
+<head>
+<meta charset="UTF-8">
+<title>CINE DISPLAY</title>
+
+</head>
+<body>
+
+
+	<!-- Page Content -->
+	<div layout:fragment="content">
+
+		<div class="card card-primary p-2">
+
+			<!--card-header start -->
+			<div class="card-header">
+				<h1 class="card-title" th:if="${objPeliculas.idPelicula == null}">NUEVA
+					PELICULA</h1>
+				<h1 class="card-title"
+					th:unless="${objPeliculas.idPelicula == null}">EDITAR PELICULA</h1>
+			</div>
+			<hr>
+			<!-- /.card-header -->
+
+			<!-- form start -->
+			<div class="container">
+
+				<form th:action="@{/admin/peliculas/save}"
+					th:object="${objPeliculas}" method="POST"
+					enctype="multipart/form-data">
+
+					<input type="hidden" th:field="*{idPelicula}"
+						th:value="${objPeliculas.idPelicula}">
+
+					<div class="card-body">
+
+						<div class="row">
+
+							<div class="col">
+
+								<label for="titulo">TITULO:</label> <input type="text"
+									th:field="*{titulo}" class="form-control" id="titulo"
+									name="nombre" placeholder="Titulo Pelicula">
+
+								<div class="invalid-feedback"
+									th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
+
+							</div>
+
+
+
+						</div>
+
+
+						<div class="row">
+
+							<div class="col">
+
+
+								<!-- TEXTAREA -->
+								<div class="form-group">
+									<label>SINOPSIS:</label>
+									<textarea class="form-control" th:field="*{sinopsis}" rows="3"
+										id="descripcion" name="descripcion"
+										placeholder="Ingrese la sinopsis de la pelicula">
+						
+						            </textarea>
+
+									<div class="invalid-feedback"
+										th:if="${#fields.hasErrors('sinopsis')}"
+										th:errors="*{sinopsis}"></div>
+
+								</div>
+
+
+							</div>
+
+							<div class="col">
+
+								<label for="clasificacion">CLASIFICACION:</label> <input
+									type="text" th:field="*{clasificacion}" class="form-control"
+									id="clasificacion" name="clasificacion"
+									placeholder="Clasificacion">
+
+								<div class="invalid-feedback"
+									th:if="${#fields.hasErrors('clasificacion')}"
+									th:errors="*{clasificacion}"></div>
+
+
+							</div>
+
+						</div>
+
+						<div class="row">
+							<div class="col">
+
+								<label for="duracion">DURACION:</label> <input type="text"
+									th:field="*{duracion}" class="form-control" id="duracion"
+									name="duracion" placeholder="hrs/min">
+
+								<div class="invalid-feedback"
+									th:if="${#fields.hasErrors('duracion')}"
+									th:errors="*{duracion}"></div>
+
+
+							</div>
+
+							<div class="col">
+
+								<label for="idioma">IDIOMA:</label> <input type="text"
+									th:field="*{idioma}" class="form-control" id="idioma"
+									name="idioma" placeholder="Ingles-Latino">
+
+								<div class="invalid-feedback"
+									th:if="${#fields.hasErrors('idioma')}" th:errors="*{idioma}"></div>
+
+							</div>
+
+						</div>
+
+						<div class="row">
+
+							<div class="col">
+
+								<label for="trailerUrl">TRAILER:</label> <input type="text"
+									th:field="*{trailerUrl}" class="form-control" id="trailerUrl"
+									name="trailerUrl" placeholder="Trailer Id">
+
+								<div class="invalid-feedback"
+									th:if="${#fields.hasErrors('trailerUrl')}"
+									th:errors="*{trailerUrl}"></div>
+							</div>
+
+
+							<div class="col">
+
+								<label for="formato">FORMATO:</label> <input type="text"
+									th:field="*{formato}" class="form-control" id="formato"
+									name="formato" placeholder="HD/2D/3D">
+
+								<div class="invalid-feedback"
+									th:if="${#fields.hasErrors('formato')}" th:errors="*{formato}"></div>
+							</div>
+
+
+						</div>
+
+
+						<div class="row">
+							<div class="col">
+
+
+								<label class="form-label" for="portada">PORTADA:</label> <input
+									type="file" class="form-control" id="portada" name="portada">
+
+								<div class="invalid-feedback"
+									th:if="${#fields.hasErrors('portada')}" th:errors="*{portada}"></div>
+
+
+							</div>
+
+							<div class="col">
+
+								<label for="generos">GENERO:</label> <select
+									th:field="*{generosList}" class="form-control select2"
+									id="generosList" name="formato" multiple>
+
+									<option th:each="genero : ${objGeneros}"
+										th:value="${genero.idGenero}" th:text=${genero.nombre}></option>
+
+
+								</select>
+
+								<div class="invalid-feedback"
+									th:if="${#fields.hasErrors('generosList')}"
+									th:errors="*{generosList}"></div>
+							</div>
+
+
+						</div>
+					</div>
+					<!-- /.card-body -->
+
+					<div class="card-footer">
+
+						<div class="row">
+							<div class="col-sm-2">
+								<button type="submit" class="btn btn-success">
+									<span class="glyphicon glyphicon-saved"></span> GUARDAR
+								</button>
+							</div>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<!-- /.Content-->
+
+
+
+
+
+</body>
+</html>
