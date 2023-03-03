@@ -94,8 +94,9 @@ public class AdminController {
 		Pelicula peli = pelisrvc.getFindById(id);
 		List<Genero> lstGeneros = gensrvc.findAll(Sort.by("nombre"));
 
-		return new ModelAndView("ModuloAdmin/nueva-pelicula").addObject("objPeliculas", peli).addObject("objGeneros",
-				lstGeneros);
+		return new ModelAndView("ModuloAdmin/nueva-pelicula")
+				   .addObject("objPeliculas", peli)
+				   .addObject("objGeneros", lstGeneros);
 
 	}
 

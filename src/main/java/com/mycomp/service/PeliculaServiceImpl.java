@@ -5,7 +5,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mycomp.model.Pelicula;
@@ -22,6 +23,12 @@ public class PeliculaServiceImpl implements PeliculaService {
 	public List<Pelicula> findAll() {
 
 		return pelirepo.findAll();
+	}
+	
+	@Override
+	public Page<Pelicula> getAllPagination(Pageable page) {
+		
+		return pelirepo.findAll(page);
 	}
 
 	@Override
@@ -48,5 +55,7 @@ public class PeliculaServiceImpl implements PeliculaService {
 		// TODO Auto-generated method stub
 
 	}
+
+
 
 }

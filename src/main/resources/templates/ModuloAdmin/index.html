@@ -65,13 +65,15 @@
 
 							<td th:text="*{idPelicula}"></td>
 
-							<td style="width: 5px; height: 5px;"><a
+							<td style="width: 5px; height: 5px;">
+							<a
 								th:href="@{/assets/{filename}(filename=*{rutaPortada})}"
 								data-fancybox> <img
 									th:src="@{/assets/{filename}(filename=*{rutaPortada})}" alt=""
 									class="img-thumbnail w-100">
 
-							</a></td>
+							</a>
+							</td>
 
 							<td>
 

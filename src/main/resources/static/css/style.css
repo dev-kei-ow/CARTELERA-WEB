@@ -1,0 +1,37 @@
+.altura-a-b {
+  padding: 100px 0;
+}
+
+.Logotipo {
+  width: 50px;
+  padding: 0px 0;
+}
+
+.icons-redes {
+  width: 20px;
+  margin: 10px 5px;
+}
+
+.bannerVideo {
+  background-image: url(../imgs/video-bg.jpg);
+  padding: 200px 0;
+  position: relative;
+  text-align: center;
+}
+
+.bannerVideo .play {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+footer{
+
+    background-color: black;
+    padding: 100px 0;
+    text-align: center;
+}
+
+footer p {
+    color: blanchedalmond;
+}
