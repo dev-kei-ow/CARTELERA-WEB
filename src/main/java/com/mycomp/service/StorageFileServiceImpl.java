@@ -31,7 +31,7 @@ public class StorageFileServiceImpl implements StorageService {
 
 		try {
 
-			/* CREAR EL DIRECTORIO DONDE VAMOS A ALAMACENAR LAS FOTOS */
+			/* ::CREAR EL DIRECTORIO DONDE VAMOS A ALAMACENAR LAS IMAGENES:: */
 			Files.createDirectories(Paths.get(storageLocation));
 
 		} catch (IOException e) {
@@ -44,7 +44,7 @@ public class StorageFileServiceImpl implements StorageService {
 	@Override
 	public String storage(MultipartFile file) {
 
-		/* OBTENER EL NOMBRE ORIGINAL DEL ARCHIVO */
+		/* ::OBTENER EL NOMBRE ORIGINAL DEL ARCHIVO:: */
 		String fileName = file.getOriginalFilename();
 
 		if (file.isEmpty()) {

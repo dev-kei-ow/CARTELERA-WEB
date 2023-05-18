@@ -29,7 +29,7 @@ public class Pelicula implements Serializable {
 	private String clasificacion;
 	private String idioma;
 	@NotNull
-	private String trailerUrl;
+	private String trailerId;
 	private String formato;
 	private String sinopsis;
 	private String rutaPortada;

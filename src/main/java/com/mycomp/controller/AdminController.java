@@ -56,7 +56,7 @@ public class AdminController {
 	@PostMapping("/peliculas/save")
 	ModelAndView savePelicula(Pelicula peli) {
 
-		if (peli.getIdPelicula() == null) { // CUANDO NO CARGAS EL ID, OSEA ESTAS GUARDANDO
+		if (peli.getIdPelicula() == null) { // CUANDO NO CARGAS EL ID --> ESTAS GUARDANDO
 
 			String ruta = strgsrvc.storage(peli.getPortada());
 
